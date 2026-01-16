@@ -2,13 +2,13 @@ from customtkinter import *
 from src.model_definition import predict
 
 def initialize():
-    # Definimos los basicos del frame
+  # Define the basic frame parameters
     HEIGTH, WIDTH = 600, 500
     app = CTk()
     app.geometry(f'{HEIGTH}x{WIDTH}')
     app.title('Depression Predicter')
 
-    # Variables basicas de la logica
+   # Basic variables of the logic
     respuestas: dict = {
         'Gender': [None],
         'Age': [None],
@@ -27,7 +27,7 @@ def initialize():
     texto_financial = StringVar()
     texto_satisfaction = StringVar()
 
-    # Funciones de los widgets
+   # Functions of the widgets
     def on_combo_change_gender(value):
         respuestas['Gender'][0] = value
 
@@ -49,7 +49,7 @@ def initialize():
         texto_satisfaction.set(int(value))
         respuestas['Study Satisfaction'][0] = value
 
-    # Definimos los widgets
+  # Define the widgets
     entry_age = CTkEntry(app, justify='center',
                         width=60, height=40,
                         border_color='#555555',
@@ -142,7 +142,7 @@ def initialize():
                                 )
     label_resultado = CTkLabel(frame_resultados, textvariable=texto_resultado)
 
-    # Logica calculo de resultados (Necesita los widgets previos y ser declarada antes que el boton)
+   # Logic for calculating results (Requires the previous widgets and must be declared before the button)
     def ready_answers(respuestas: dict) -> bool:
         for key in respuestas.keys():
             if respuestas[key] == None:
@@ -182,7 +182,7 @@ def initialize():
                             )
 
 
-    # Desplegamos los widgets
+   # Display the widgets
     entry_age.place(x=25, y=HEIGTH * 0.05)
     entry_study.place(x=95, y=HEIGTH * 0.05)
 
@@ -212,5 +212,5 @@ def initialize():
     bttn_calcular.place(x=25, y=25)
     label_resultado.place(x = 250, y = 30)
 
-    # Lanzamos la interfaz
+   # Launch the interface
     app.mainloop()
