@@ -37,7 +37,7 @@ Depression-Predicter
 ```
 ## Instalation
 
- 1. Clone the repository:
+ 1. Clone the repository:https://github.com/AradhyaStuti/Student-Depression-Prediction.git
 
 2. Install requirements:
 pip install -r requirements.txt
